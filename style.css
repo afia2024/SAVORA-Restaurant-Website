@@ -1,10 +1,696 @@
 
-/* ============================================
-   SAVORA - CONTACT PAGE
-   CENTERED RESTAURANT DESIGN
-============================================ */
+/* ==========================================
+   SAVORA | WEST AFRICAN FUSION KITCHEN
+   COMPLETE WEBSITE STYLESHEET
+   Burgundy • Light Blue • Cream
+========================================== */
 
-/* Contact banner */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Poppins:wght@400;500;600;700&display=swap');
+
+/* COLORS AND FONTS */
+
+:root {
+    --burgundy: #6D2E3F;
+    --burgundy-dark: #4E1E2C;
+    --burgundy-light: #88485B;
+    --blue: #A9C8E5;
+    --blue-dark: #789EBD;
+    --blue-pale: #E4EFF9;
+    --cream: #FAF5E9;
+    --cream-dark: #F1E8D8;
+    --white: #FFFFFF;
+    --text: #493F3D;
+    --muted: #716865;
+    --border: #DED3C5;
+    --font-heading: 'Playfair Display', Georgia, serif;
+    --font-ui: 'Poppins', Arial, sans-serif;
+    --font-body: 'DM Sans', Arial, sans-serif;
+}
+
+/* GLOBAL STYLING */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background: var(--cream);
+    color: var(--text);
+    font-family: var(--font-body);
+    font-size: 15px;
+    line-height: 1.8;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+}
+
+a {
+    text-decoration: none;
+    transition: 0.3s ease;
+}
+
+h1, h2, h3 {
+    font-family: var(--font-heading);
+    font-weight: 600;
+    color: var(--burgundy);
+}
+
+h1 {
+    font-size: clamp(42px, 5.5vw, 72px);
+    line-height: 1.18;
+}
+
+h2 {
+    font-size: clamp(32px, 4vw, 48px);
+    line-height: 1.3;
+}
+
+h3 {
+    font-size: 27px;
+    line-height: 1.35;
+}
+
+h4 {
+    font-family: var(--font-ui);
+    font-size: 15px;
+    color: var(--burgundy);
+}
+
+p {
+    font-size: 15px;
+    line-height: 1.85;
+}
+
+.eyebrow {
+    font-family: var(--font-ui);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--burgundy);
+    margin-bottom: 16px;
+}
+
+/* ==========================================
+   HEADER AND NAVIGATION
+========================================== */
+
+.site-header {
+    background: var(--cream);
+    border-bottom: 1px solid var(--border);
+    padding: 19px 8%;
+}
+
+.navbar {
+    max-width: 1250px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.logo {
+    font-family: var(--font-heading);
+    font-size: 34px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    color: var(--burgundy);
+}
+
+.logo span {
+    color: var(--blue-dark);
+}
+
+nav {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 28px;
+}
+
+nav a {
+    position: relative;
+    padding: 9px 0;
+    font-family: var(--font-ui);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--burgundy);
+}
+
+nav a:hover {
+    color: var(--blue-dark);
+}
+
+nav a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 2px;
+    width: 0;
+    height: 2px;
+    background: var(--blue-dark);
+    transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+    width: 100%;
+}
+
+/* BUTTONS */
+
+.button {
+    display: inline-block;
+    padding: 14px 30px;
+    margin-top: 15px;
+    background: var(--burgundy);
+    color: var(--cream);
+    border: 2px solid var(--burgundy);
+    border-radius: 5px;
+    font-family: var(--font-ui);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+}
+
+.button:hover {
+    background: var(--blue);
+    border-color: var(--blue);
+    color: var(--burgundy);
+    transform: translateY(-3px);
+}
+
+.button-light {
+    background: var(--cream);
+    border-color: var(--cream);
+    color: var(--burgundy);
+}
+
+.button-light:hover {
+    background: var(--blue);
+    border-color: var(--blue);
+    color: var(--burgundy);
+}
+
+.text-link {
+    display: inline-block;
+    margin-top: 15px;
+    padding-bottom: 3px;
+    font-family: var(--font-ui);
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--burgundy);
+    border-bottom: 2px solid var(--burgundy);
+}
+
+.text-link:hover {
+    color: var(--blue-dark);
+    border-color: var(--blue-dark);
+}
+
+/* ==========================================
+   HOME PAGE
+========================================== */
+
+/* HERO */
+
+.hero {
+    min-height: 580px;
+    display: flex;
+    align-items: center;
+    padding: 90px 10%;
+    background:
+        linear-gradient(
+            rgba(78, 30, 44, 0.58),
+            rgba(78, 30, 44, 0.70)
+        ),
+        url("images/restaurant.jpg")
+        center / cover no-repeat;
+}
+
+.hero-content {
+    max-width: 760px;
+}
+
+.hero h1 {
+    color: var(--cream);
+    margin-bottom: 24px;
+}
+
+.hero h1 em {
+    color: var(--blue);
+}
+
+.hero .eyebrow {
+    color: var(--blue);
+}
+
+.hero p:not(.eyebrow) {
+    max-width: 560px;
+    margin-bottom: 24px;
+    color: var(--cream);
+}
+
+/* WELCOME */
+
+.welcome {
+    padding: 95px 10%;
+    text-align: center;
+}
+
+.welcome h2 {
+    margin-bottom: 20px;
+}
+
+.welcome > p:not(.eyebrow) {
+    max-width: 750px;
+    margin: 0 auto 18px;
+}
+
+/* FEATURES */
+
+.features {
+    background: var(--blue-pale);
+    padding: 85px 8%;
+    text-align: center;
+}
+
+.features h2 {
+    margin-bottom: 20px;
+}
+
+.feature-grid {
+    max-width: 1200px;
+    margin: 38px auto 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+}
+
+.feature-card {
+    background: var(--cream);
+    padding: 42px 28px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    transition: transform 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-7px);
+}
+
+.feature-symbol {
+    display: block;
+    font-size: 34px;
+    color: var(--blue-dark);
+    margin-bottom: 15px;
+}
+
+.feature-card h3 {
+    margin-bottom: 12px;
+}
+
+.feature-card p {
+    font-size: 14px;
+}
+
+/* HOME SPECIALS */
+
+.home-specials {
+    background: var(--cream);
+    padding: 90px 8%;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 42px;
+}
+
+.section-heading h2 {
+    margin-bottom: 12px;
+}
+
+.specials-grid {
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 28px;
+}
+
+.special-card {
+    background: var(--cream);
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid var(--border);
+}
+
+.special-card img {
+    width: 100%;
+    height: 270px;
+    object-fit: cover;
+}
+
+.special-info {
+    padding: 24px;
+}
+
+.special-info h3 {
+    margin-bottom: 8px;
+}
+
+.special-info p {
+    font-size: 14px;
+}
+
+.center-button {
+    text-align: center;
+    margin-top: 35px;
+}
+
+/* HOME CALL TO ACTION */
+
+.home-cta {
+    background: var(--burgundy);
+    text-align: center;
+    padding: 90px 20px;
+}
+
+.home-cta h2 {
+    color: var(--cream);
+    margin-bottom: 16px;
+}
+
+.home-cta .eyebrow {
+    color: var(--blue);
+}
+
+.home-cta p:not(.eyebrow) {
+    color: var(--cream);
+    margin-bottom: 18px;
+}
+
+/* ==========================================
+   ABOUT PAGE
+========================================== */
+
+.page-title {
+    background:
+        linear-gradient(
+            rgba(78, 30, 44, 0.55),
+            rgba(78, 30, 44, 0.72)
+        ),
+        url("images/restaurant.jpg")
+        center / cover no-repeat;
+    text-align: center;
+    padding: 110px 20px;
+}
+
+.page-title h1 {
+    color: var(--cream);
+    margin-bottom: 12px;
+}
+
+.page-title .eyebrow {
+    color: var(--blue);
+}
+
+.page-title p:not(.eyebrow) {
+    color: var(--cream);
+}
+
+.about {
+    max-width: 850px;
+    margin: auto;
+    padding: 85px 25px;
+    text-align: center;
+}
+
+.about h2 {
+    margin: 30px 0 18px;
+}
+
+.about p:not(.eyebrow) {
+    margin-bottom: 22px;
+}
+
+/* ==========================================
+   MENU PAGE
+========================================== */
+
+/* MENU HERO */
+
+.menu-hero {
+    min-height: 530px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 100px 20px;
+    background:
+        linear-gradient(
+            rgba(78, 30, 44, 0.52),
+            rgba(78, 30, 44, 0.68)
+        ),
+        url("images/restaurant.jpg")
+        center / cover no-repeat;
+}
+
+.menu-hero h1 {
+    color: var(--cream);
+    margin-bottom: 22px;
+    text-shadow: 0 3px 15px rgba(0,0,0,0.3);
+}
+
+.menu-hero h1 em {
+    color: var(--blue);
+}
+
+.menu-hero .eyebrow {
+    color: var(--blue);
+}
+
+.menu-hero > p:last-child {
+    color: var(--cream);
+}
+
+/* CATEGORY NAVIGATION */
+
+.category-navigation {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 12px;
+    padding: 28px 6%;
+    background: var(--cream);
+    border-bottom: 1px solid var(--border);
+}
+
+.category-navigation a {
+    padding: 11px 19px;
+    border-radius: 30px;
+    background: var(--blue-pale);
+    color: var(--burgundy);
+    font-family: var(--font-ui);
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.category-navigation a:hover {
+    background: var(--burgundy);
+    color: var(--cream);
+}
+
+/* FOOD MENU */
+
+.food-menu {
+    padding: 95px 8%;
+    background: var(--cream);
+    scroll-margin-top: 20px;
+}
+
+.food-menu:nth-of-type(even) {
+    background: var(--blue-pale);
+}
+
+.menu-heading {
+    max-width: 1200px;
+    margin: 0 auto 55px;
+}
+
+.menu-heading h2 {
+    margin-bottom: 12px;
+}
+
+.food-grid {
+    max-width: 1200px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 70px 55px;
+}
+
+.food-card {
+    display: grid;
+    grid-template-columns: 48% minmax(0, 1fr);
+    align-items: center;
+    gap: 24px;
+}
+
+.food-image {
+    width: 100%;
+    height: 275px;
+    border-radius: 48% / 38%;
+    overflow: hidden;
+    background: var(--cream-dark);
+}
+
+.food-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.4s ease;
+}
+
+.food-card:hover .food-image img {
+    transform: scale(1.04);
+}
+
+.food-info {
+    min-width: 0;
+}
+
+.food-title-row {
+    margin-bottom: 12px;
+}
+
+.food-title-row h3 {
+    font-size: 26px;
+    margin-bottom: 10px;
+}
+
+.food-price {
+    display: block;
+    color: var(--burgundy);
+    font-family: var(--font-ui);
+    font-size: 19px;
+    font-weight: 600;
+}
+
+.food-info p {
+    font-size: 14px;
+}
+
+/* ==========================================
+   DRINKS MENU
+========================================== */
+
+.savora-drinks {
+    background: var(--cream);
+    padding: 100px 6%;
+}
+
+.drinks-intro {
+    max-width: 800px;
+    margin: 0 auto 70px;
+    text-align: center;
+}
+
+.drinks-intro h2 {
+    margin-bottom: 15px;
+}
+
+.drinks-grid {
+    max-width: 1250px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 55px;
+}
+
+.drink-category {
+    min-width: 0;
+    scroll-margin-top: 25px;
+}
+
+.drink-category h3 {
+    font-size: 32px;
+    padding-bottom: 18px;
+    margin-bottom: 28px;
+    border-bottom: 1px solid var(--border);
+}
+
+.drink-list {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.drink-item {
+    padding-bottom: 22px;
+    border-bottom: 1px solid var(--border);
+}
+
+.drink-item-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.drink-item h4 {
+    font-size: 15px;
+    color: var(--burgundy);
+}
+
+.drink-price {
+    font-family: var(--font-ui);
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--burgundy);
+    white-space: nowrap;
+}
+
+.drink-item p {
+    font-size: 13px;
+    margin-top: 7px;
+}
+
+/* MENU ENDING */
+
+.menu-ending {
+    background: var(--blue-pale);
+    text-align: center;
+    padding: 90px 20px;
+}
+
+.menu-ending h2 {
+    margin-bottom: 18px;
+}
+
+.menu-ending p:not(.eyebrow) {
+    margin-bottom: 25px;
+}
+
+/* ==========================================
+   CONTACT PAGE
+========================================== */
 
 .savora-contact-banner {
     text-align: center;
@@ -15,75 +701,48 @@
     text-align: center;
 }
 
-/* Main contact section */
-
 .savora-contact {
     width: 100%;
     padding: 100px 8%;
-    background-color: #FAF5E9;
+    background: var(--cream);
     text-align: center;
 }
 
-/* Centered heading */
-
 .savora-contact-heading {
-    width: 100%;
     max-width: 800px;
     margin: 0 auto 55px;
     text-align: center;
 }
 
-.savora-contact-heading .eyebrow {
-    color: #6D2E3F;
-    margin-bottom: 16px;
-}
-
 .savora-contact-heading h2 {
-    font-family: 'Playfair Display', Georgia, serif;
-    font-size: clamp(32px, 4vw, 48px);
-    color: #6D2E3F;
     margin-bottom: 20px;
-    text-align: center;
 }
 
 .savora-contact-heading p {
     max-width: 650px;
     margin: 0 auto;
-    color: #493F3D;
-    font-size: 15px;
-    line-height: 1.9;
     text-align: center;
 }
-
-/* Three contact cards */
 
 .savora-contact-grid {
     width: 100%;
     max-width: 1150px;
     margin: 0 auto;
-
     display: grid;
     grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 28px;
-    align-items: stretch;
 }
 
-/* Individual cards */
-
 .savora-contact-card {
-    background-color: #E4EFF9;
-    border: 1px solid #DED3C5;
+    background: var(--blue-pale);
+    border: 1px solid var(--border);
     border-radius: 14px;
-
     padding: 48px 28px;
     min-width: 0;
-
     display: flex;
     flex-direction: column;
     align-items: center;
-
     text-align: center;
-
     transition: transform 0.3s ease;
 }
 
@@ -91,96 +750,272 @@
     transform: translateY(-6px);
 }
 
-/* Card icons */
-
 .savora-contact-icon {
     font-size: 40px;
     line-height: 1;
-    color: #6D2E3F;
+    color: var(--burgundy);
     margin-bottom: 24px;
 }
 
-/* Card titles */
-
 .savora-contact-card h3 {
-    font-family: 'Playfair Display', Georgia, serif;
-    font-size: 27px;
-    color: #6D2E3F;
     margin-bottom: 16px;
-    text-align: center;
 }
 
-/* Card descriptions */
-
 .savora-contact-card p {
-    color: #493F3D;
     font-size: 14px;
-    line-height: 1.8;
     margin-bottom: 20px;
     text-align: center;
 }
-
-/* Card links */
 
 .savora-contact-card a {
     display: inline-block;
     margin-top: auto;
     padding-top: 12px;
-
-    color: #6D2E3F;
-    font-family: 'Poppins', Arial, sans-serif;
+    color: var(--burgundy);
+    font-family: var(--font-ui);
     font-size: 12px;
     font-weight: 600;
-    letter-spacing: 0.5px;
     text-transform: uppercase;
     text-align: center;
     overflow-wrap: anywhere;
-
-    border-bottom: 2px solid #6D2E3F;
+    border-bottom: 2px solid var(--burgundy);
 }
 
 .savora-contact-card a:hover {
-    color: #789EBD;
-    border-color: #789EBD;
+    color: var(--blue-dark);
+    border-color: var(--blue-dark);
 }
-
-/* Student project notice */
 
 .savora-contact-notice {
     max-width: 750px;
     margin: 50px auto 0;
-
-    color: #716865;
+    color: var(--muted);
     font-size: 13px;
-    line-height: 1.8;
     text-align: center;
 }
 
-/* Tablet */
+/* ==========================================
+   FOOTER
+========================================== */
+
+.site-footer {
+    background:
+        linear-gradient(
+            rgba(78, 30, 44, 0.80),
+            rgba(78, 30, 44, 0.88)
+        ),
+        url("images/kitchen.jpg")
+        center / cover no-repeat;
+    color: var(--cream);
+    padding-top: 65px;
+}
+
+.footer-container {
+    max-width: 1250px;
+    margin: auto;
+    padding: 0 8% 50px;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 40px;
+}
+
+.footer-container h2 {
+    color: var(--cream);
+    font-size: 32px;
+    margin-bottom: 15px;
+}
+
+.footer-container h3 {
+    color: var(--cream);
+    font-size: 23px;
+    margin-bottom: 18px;
+}
+
+.footer-container p,
+.footer-container a {
+    color: var(--cream);
+    font-family: var(--font-body);
+    font-size: 14px;
+}
+
+.footer-container p {
+    margin-bottom: 10px;
+}
+
+.footer-container a {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.footer-container a:hover {
+    color: var(--blue);
+}
+
+.copyright {
+    background: rgba(78, 30, 44, 0.45);
+    border-top: 1px solid rgba(255,255,255,0.2);
+    text-align: center;
+    padding: 22px;
+    color: var(--cream);
+    font-family: var(--font-ui);
+    font-size: 12px;
+    letter-spacing: 0.5px;
+}
+
+/* ==========================================
+   RESPONSIVE DESIGN
+========================================== */
+
+/* SMALLER LAPTOPS */
+
+@media (max-width: 1100px) {
+    .food-grid {
+        grid-template-columns: 1fr;
+        max-width: 760px;
+    }
+
+    .menu-heading {
+        max-width: 760px;
+    }
+
+    .food-card {
+        grid-template-columns: 42% 1fr;
+    }
+
+    .food-image {
+        height: 280px;
+    }
+
+    .drinks-grid {
+        gap: 30px;
+    }
+
+    .drink-category h3 {
+        font-size: 28px;
+    }
+}
+
+/* TABLETS */
 
 @media (max-width: 850px) {
+    .navbar {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    nav {
+        justify-content: center;
+        gap: 16px;
+    }
+
+    .feature-grid,
+    .specials-grid,
+    .footer-container,
     .savora-contact-grid {
         grid-template-columns: 1fr;
+    }
+
+    .savora-contact-grid {
         max-width: 500px;
     }
 
+    .hero {
+        min-height: 470px;
+        padding: 70px 8%;
+    }
+
+    .welcome,
+    .about,
+    .features,
+    .home-specials,
     .savora-contact {
+        padding: 65px 7%;
+    }
+
+    .menu-hero {
+        min-height: 430px;
+        padding: 75px 20px;
+    }
+
+    .food-menu {
+        padding: 65px 6%;
+    }
+
+    .drinks-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 55px 40px;
+    }
+
+    .savora-drinks {
         padding: 70px 7%;
     }
 }
 
-/* Small mobile screens */
+/* MOBILE PHONES */
 
-@media (max-width: 480px) {
-    .savora-contact {
-        padding: 55px 6%;
+@media (max-width: 600px) {
+    .logo {
+        font-size: 29px;
+    }
+
+    nav a {
+        font-size: 11px;
+    }
+
+    .hero h1 {
+        font-size: 37px;
+    }
+
+    .category-navigation {
+        gap: 8px;
+        padding: 20px 12px;
+    }
+
+    .category-navigation a {
+        font-size: 11px;
+        padding: 9px 13px;
+    }
+
+    .food-grid {
+        gap: 48px;
+    }
+
+    .food-card {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .food-image {
+        height: 290px;
+        border-radius: 18px;
+    }
+
+    .drinks-grid {
+        grid-template-columns: 1fr;
+        gap: 50px;
     }
 
     .savora-contact-card {
         padding: 35px 22px;
     }
+}
 
-    .savora-contact-heading h2 {
-        font-size: 32px;
+/* ACCESSIBILITY */
+
+a:focus-visible {
+    outline: 3px solid var(--blue);
+    outline-offset: 4px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
     }
 }
